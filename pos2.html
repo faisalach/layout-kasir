@@ -4,10 +4,32 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Layout Kasir</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/all.min.css">
-	<link rel="stylesheet" href="css/OverlayScrollbars.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.10.3/css/OverlayScrollbars.min.css">
+	<style>
+	#transaksi .table-kasir input{
+		width: 80px;
+		text-align: center;
+		margin: auto;
+	}
+	#transaksi .table-responsive{
+		padding-right: 10px;
+	}
+	#transaksi .form-harga td,#transaksi .form-harga th{
+		border: 0;
+		border-bottom: 1px solid #eaeaea;
+	}
+	#transaksi .btn-item{
+		border-radius: 0;
+		height: 50px;
+	}
+	@media (max-width: 768px){
+		*,h5{
+			font-size: 15px;
+		}
+	}
+</style>
 </head>
 <body class="bg-light">
 	
@@ -173,13 +195,13 @@
 
 					<div class="mt-3">
 						<div class="row m-0">
-							<div class="col-12 by-1 p-1">
+							<div class="col-md-12 col by-1 p-1">
 								<button class="btn btn-success btn-block btn-item"><i class="fas fa-fw mx-1 fa-coins"></i> Tunai</button>
 							</div>
-							<div class="col-6 by-1 p-1">
+							<div class="col-md-6 col by-1 p-1">
 								<button class="btn btn-info btn-block btn-item"><i class="fas fa-fw mx-1 fa-check"></i> Multi Bayar</button>
 							</div>
-							<div class="col-6 by-1 p-1">
+							<div class="col-md-6 col by-1 p-1">
 								<button class="btn btn-secondary btn-block btn-item"><i class="far fa-fw mx-1 fa-credit-card"></i> Kartu</button>
 							</div>
 						</div>
@@ -190,9 +212,23 @@
 		</div>
 	</div>
 
-	<script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/OverlayScrollbars.min.js"></script>
-	<script src="js/script.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.10.3/js/OverlayScrollbars.min.js"></script>
+	<script>
+		$('.table-responsive').overlayScrollbars({ });
+		responsive();
+		function responsive() {
+			if ($(window).width() > 767) {
+				$('.table-responsive').height($(window).height() - 150);
+			}else{
+				$('.table-responsive').height($(window).height() - 340);
+			}
+		}
+		$(window).on('resize',function() {
+			responsive();
+		})
+	</script>
 </body>
 </html>
